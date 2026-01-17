@@ -1,0 +1,69 @@
+# =========================
+# OS / Editor junk
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# =========================
+# Python backend
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+env/
+ENV/
+
+# Flask / FastAPI / general
+instance/
+*.log
+
+# =========================
+# Frontend (Node / Vite / React)
+# =========================
+node_modules/
+dist/
+build/
+.vite/
+
+# =========================
+# Package manager locks (keep ONE)
+# =========================
+# You already have multiple — pick ONE and delete the others
+# Uncomment the ones you do NOT want to track
+
+# package-lock.json
+# pnpm-lock.yaml
+# yarn.lock
+
+# =========================
+# TypeScript
+# =========================
+*.tsbuildinfo
+
+# =========================
+# Misc generated / local files
+# =========================
+coverage/
+*.tmp
+*.cache
+
+# =========================
+# Shell / local scripts output
+# =========================
+*.pid
+
+# =========================
+# Secrets (do NOT commit)
+# =========================
+.env.local
+.env.development
+.env.production
+.env.test
