@@ -57,8 +57,10 @@ Ensure your code is pushed to GitHub (same repo as backend is fine)
    - **Install Command**: `npm install`
 
 #### Step 3: Environment Variables
-Add this environment variable in Vercel:
+Add this environment variable in Vercel (Settings → Environment Variables):
 - `VITE_API_URL`: Your Render backend URL (e.g., `https://sensorguard-backend.onrender.com`)
+
+**Important**: Vite automatically exposes `VITE_` prefixed variables to the browser. This is safe because API URLs are meant to be public.
 
 #### Step 4: Deploy
 Click "Deploy" and wait for deployment.
