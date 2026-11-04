@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import * as THREE from 'three'
+import { API_URL } from '../config'
 import './DigitalTwinPage.css'
 
 interface LiveState {
@@ -147,7 +148,7 @@ const DigitalTwinPage: React.FC = () => {
 
   // Connect to live stream
   useEffect(() => {
-    const eventSource = new EventSource('http://localhost:5000/live/stream')
+    const eventSource = new EventSource(`${API_URL}/live/stream`)
 
     eventSource.onmessage = (event) => {
       const data: LiveState = JSON.parse(event.data)

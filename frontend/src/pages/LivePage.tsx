@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { API_URL } from '../config'
 import './LivePage.css'
 
 interface SensorData {
@@ -390,7 +391,7 @@ const LivePage: React.FC = () => {
 
   // Connect to live SSE stream
   useEffect(() => {
-    const eventSource = new EventSource('http://localhost:5000/live/stream')
+    const eventSource = new EventSource(`${API_URL}/live/stream`)
 
     eventSource.onmessage = (event) => {
       const data: LiveState = JSON.parse(event.data)
@@ -409,7 +410,7 @@ const LivePage: React.FC = () => {
 
   const handleOverride = async (decision: string) => {
     try {
-      await fetch('http://localhost:5000/live/override', {
+      await fetch(`${API_URL}/live/override`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ decision, reason: overrideReason }),

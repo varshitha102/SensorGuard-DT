@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { API_URL } from '../config'
 import './SensorHealthPage.css'
 
 interface ScenarioSensor {
@@ -22,7 +23,7 @@ const SensorHealthPage: React.FC = () => {
 
   useEffect(() => {
     const eventSource = new EventSource(
-      `http://localhost:5000/scenario/stream/${selectedScenario}`
+      `${API_URL}/scenario/stream/${selectedScenario}`
     )
 
     eventSource.onmessage = (event) => {

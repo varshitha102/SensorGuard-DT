@@ -11,6 +11,7 @@ import threading
 import numpy as np
 from datetime import datetime, timedelta
 import queue
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -428,12 +429,13 @@ def health():
 
 
 if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
     print("=" * 60)
     print("Chemical Plant Digital Twin - Backend Server")
     print("=" * 60)
     print("Starting simulations...")
     print("Live simulation: Running")
     print("Scenario simulation: Ready")
-    print("Server starting on http://localhost:5000")
+    print(f"Server starting on http://0.0.0.0:{port}")
     print("=" * 60)
-    app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
+    app.run(host='0.0.0.0', port=port, debug=False, threaded=True)

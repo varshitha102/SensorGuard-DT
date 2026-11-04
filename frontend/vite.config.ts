@@ -11,5 +11,8 @@ export default defineConfig({
       '/historical': 'http://localhost:5000',
       '/health': 'http://localhost:5000'
     }
+  },
+  define: {
+    'import.meta.env.VITE_API_URL': JSON.stringify(process.env.VITE_API_URL || 'http://localhost:5000')
   }
 })
